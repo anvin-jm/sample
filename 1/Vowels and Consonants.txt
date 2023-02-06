@@ -1,0 +1,25 @@
+%{
+int vow, cons=0;
+%}
+
+
+%%
+AEIOUaeiou {vow++;}
+[A-Z]|[a-z] {cons++;}
+(.) {}
+"\n" { 
+printf(“The total no. of Vowels: ”,vow);
+printf(“The total no. of Consonants: ”,cons)
+}
+%%
+
+int yywrap()
+{
+}
+
+int main()
+{
+printf("Enter the String: ");
+yylex();
+return 0;
+}

@@ -1,0 +1,23 @@
+%{
+char *s[100];
+%}
+
+%%
+“abc” {s=s+‘ABC’;}
+[A-Z]|[a-z]|[0-9] {s=s+yytext}
+(.) {}
+"\n" { 
+printf(“The converted text: ”,s);
+}
+%%
+
+int yywrap()
+{
+}
+
+int main()
+{
+printf("Enter the String: ");
+yylex();
+return 0;
+}
